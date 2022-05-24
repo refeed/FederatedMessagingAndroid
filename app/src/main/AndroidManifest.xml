@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FederatedMessaging">
         <activity
+            android:name=".AddServerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SetupIdentityActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
