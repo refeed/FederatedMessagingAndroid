@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:id="@+id/server_name_tv"
+        android:layout_marginBottom="188dp"
+        android:layout_height="73dp"
+        android:fontFamily="sans-serif"
+        android:layout_width="match_parent"
+        android:gravity="left|center_vertical"
+        android:text="Server 1"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="28dp"
+        app:icon="@drawable/ic_baseline_cloud_24"
+        app:iconTint="@color/black" />
+</LinearLayout>

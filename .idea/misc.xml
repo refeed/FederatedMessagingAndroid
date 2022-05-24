@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/FederatedMessagingAndroid/app/src/main/res/layout/activity_add_server.xml" value="0.19882246376811594" />
-        <entry key="..\:/FederatedMessagingAndroid/app/src/main/res/layout/activity_main.xml" value="0.12310030395136778" />
-        <entry key="..\:/FederatedMessagingAndroid/app/src/main/res/layout/activity_setup_identity.xml" value="0.264" />
+        <entry key="app/src/main/res/drawable/ic_baseline_cloud_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/user.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_server.xml" value="0.22" />
       </map>
     </option>
   </component>
