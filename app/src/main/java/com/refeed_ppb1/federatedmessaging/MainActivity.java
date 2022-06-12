@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         serverRv.setLayoutManager(new LinearLayoutManager(this));
     }
 
+
     public void setupIdentity(View view) {
         Intent setupIdentityIntent = new Intent(MainActivity.this,SetupIdentityActivity.class);
         startActivity(setupIdentityIntent);
