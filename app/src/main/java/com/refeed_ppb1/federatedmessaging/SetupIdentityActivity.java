@@ -12,6 +12,8 @@ public class SetupIdentityActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup_identity);
+        getSupportActionBar().setTitle("Setup identity");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void setIdentity(View view) {
