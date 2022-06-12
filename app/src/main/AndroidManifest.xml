@@ -11,7 +11,8 @@
         android:theme="@style/Theme.FederatedMessaging">
         <activity
             android:name=".AddServerActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".SetupIdentityActivity"
             android:exported="false" />
