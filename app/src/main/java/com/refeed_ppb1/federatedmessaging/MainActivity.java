@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("Chat servers");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         RecyclerView serverRv = (RecyclerView) findViewById(R.id.server_rv);
 
