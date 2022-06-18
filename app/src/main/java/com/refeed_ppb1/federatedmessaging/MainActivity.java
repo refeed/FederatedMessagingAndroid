@@ -12,11 +12,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.refeed_ppb1.federatedmessaging.models.ServerModel;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Server> servers;
+    List<ServerModel> serverModels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView serverRv = (RecyclerView) findViewById(R.id.server_rv);
 
-        servers = Server.getServerList();
-        ServerRVAdapter adapter = new ServerRVAdapter(servers);
+        DBHelper dbHelper = new DBHelper(MainActivity.this);
+        serverModels = dbHelper.getAllServers();
+        ServerRVAdapter adapter = new ServerRVAdapter(serverModels);
         serverRv.setAdapter(adapter);
         serverRv.setLayoutManager(new LinearLayoutManager(this));
     }

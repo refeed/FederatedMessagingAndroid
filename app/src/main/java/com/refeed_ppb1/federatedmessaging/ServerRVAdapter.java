@@ -9,13 +9,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.refeed_ppb1.federatedmessaging.models.ServerModel;
+
 import java.util.List;
 
 public class ServerRVAdapter extends RecyclerView.Adapter<ServerRVAdapter.ViewHolder> {
-    private List<Server> mServer;
+    private List<ServerModel> mServerModel;
 
-    public ServerRVAdapter(List<Server> servers) {
-        mServer = servers;
+    public ServerRVAdapter(List<ServerModel> serverModels) {
+        mServerModel = serverModels;
     }
 
     @NonNull
@@ -32,14 +34,14 @@ public class ServerRVAdapter extends RecyclerView.Adapter<ServerRVAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Server server = mServer.get(position);
+        ServerModel serverModel = mServerModel.get(position);
 
-        holder.serverNameTextView.setText(server.getName());
+        holder.serverNameTextView.setText(serverModel.getName());
     }
 
     @Override
     public int getItemCount() {
-        return mServer.size();
+        return mServerModel.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
