@@ -1,4 +1,5 @@
 <resources>
+    <string name="IDENTITY_PREF">IDENTITY_PREF_KEY</string>
     <string name="app_name">FederatedMessaging</string>
     <string name="title_activity_main2">MainActivity2</string>
     <!-- Strings used for fragments for navigation -->
