@@ -42,6 +42,7 @@ public class AddServerActivity extends AppCompatActivity {
                     return;
                 }
                 Toast.makeText(AddServerActivity.this, "Successfully added server", Toast.LENGTH_SHORT).show();
+                AddServerActivity.super.onBackPressed();
             }
         });
     }
