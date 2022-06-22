@@ -13,7 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.refeed_ppb1.federatedmessaging.models.MessageModel;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class MessageRVAdapter extends RecyclerView.Adapter<MessageRVAdapter.ItemChatViewHolder> {
     private List<MessageModel> mMessageModels;
@@ -44,8 +49,21 @@ public class MessageRVAdapter extends RecyclerView.Adapter<MessageRVAdapter.Item
         MessageModel messageModel = mMessageModels.get(position);
 
         holder.senderTextView.setText(messageModel.getSender());
-        holder.dateTextView.setText(messageModel.getUpdatedAt());
+        holder.dateTextView.setText(
+                convertLongDateToOnlyTime(messageModel.getUpdatedAt()));
         holder.bodyTextView.setText(messageModel.getBody());
+    }
+
+    public static String convertLongDateToOnlyTime(String date) {
+        try {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.US);
+            Date tempDate = dateFormat.parse(date);
+            dateFormat = new SimpleDateFormat("h:mm a", Locale.US);
+            return dateFormat.format(tempDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
