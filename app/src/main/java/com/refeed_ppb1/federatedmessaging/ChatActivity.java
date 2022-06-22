@@ -5,10 +5,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.neovisionaries.ws.client.WebSocket;
+import com.neovisionaries.ws.client.WebSocketAdapter;
+import com.neovisionaries.ws.client.WebSocketFactory;
 import com.refeed_ppb1.federatedmessaging.models.MessageModel;
-import com.refeed_ppb1.federatedmessaging.models.ServerModel;
 import com.refeed_ppb1.federatedmessaging.services.ApiGetResponse;
 import com.refeed_ppb1.federatedmessaging.services.FederatedMessagingService;
 
@@ -21,9 +25,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ChatActivity extends AppCompatActivity {
 
+    RecyclerView messageRv;
+
     List<MessageModel> messageModels = new ArrayList<>();
     MessageRVAdapter adapter = new MessageRVAdapter(messageModels);
     FederatedMessagingService federatedMessagingService;
+    WebSocket ws;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +39,14 @@ public class ChatActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getIntent().getStringExtra("server_name"));
+        String server_address = getIntent().getStringExtra("server_address");
 
-        RecyclerView messageRv = (RecyclerView) findViewById(R.id.message_rv);
+        messageRv = (RecyclerView) findViewById(R.id.message_rv);
         messageRv.setAdapter(adapter);
         messageRv.setLayoutManager(new LinearLayoutManager(this));
-        federatedMessagingService = getFederatedMessagingService(
-                getIntent().getStringExtra("server_address"));
-        getMessages();
+        federatedMessagingService = getFederatedMessagingService(server_address);
+        populateMessages();
+        connectToWebsocket(server_address);
     }
 
     public static FederatedMessagingService getFederatedMessagingService(String serverAddress) {
@@ -50,7 +58,7 @@ public class ChatActivity extends AppCompatActivity {
         return service;
     }
 
-    private void getMessages() {
+    private void populateMessages() {
         federatedMessagingService.getMessages().enqueue(new retrofit2.Callback<ApiGetResponse>() {
             @Override
             public void onResponse(retrofit2.Call<ApiGetResponse> call, retrofit2.Response<ApiGetResponse> response) {
@@ -63,5 +71,38 @@ public class ChatActivity extends AppCompatActivity {
                 Toast.makeText(ChatActivity.this, "Error when fetching messages", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void connectToWebsocket(String serverAddress) {
+        try {
+            ws = new WebSocketFactory().createSocket(
+                    convertUrlToWebsocketURL(serverAddress));
+        } catch (Exception e) {
+            Log.e("ws.createSocket", e.toString());
+        }
+        ws.addListener(new WebSocketAdapter() {
+            @Override
+            public void onTextMessage(WebSocket websocket, String message) throws Exception {
+                Gson gson = new Gson();
+                MessageModel messageModel = gson.fromJson(message, MessageModel.class);
+                messageModels.add(messageModel);
+                final int newPosition = messageModels.size() - 1;
+                adapter.notifyItemInserted(newPosition);
+                messageRv.scrollToPosition(newPosition);
+            }
+        });
+        try {
+            ws.connectAsynchronously();
+        }
+        catch (Exception e) {
+            Log.e("ws.connect", e.toString());
+        }
+    }
+
+    public static String convertUrlToWebsocketURL(String url) {
+        // FIXME: Still buggy consider using a library
+        String newUrl = url.replaceFirst("^https?:\\/\\/", "ws://");
+        newUrl += "/ws";
+        return newUrl;
     }
 }
