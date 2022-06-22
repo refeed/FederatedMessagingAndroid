@@ -1,11 +1,18 @@
 package com.refeed_ppb1.federatedmessaging;
 
+import static com.refeed_ppb1.federatedmessaging.SetupIdentityActivity.PASSWORD_PREF_KEY;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -14,6 +21,7 @@ import com.neovisionaries.ws.client.WebSocketAdapter;
 import com.neovisionaries.ws.client.WebSocketFactory;
 import com.refeed_ppb1.federatedmessaging.models.MessageModel;
 import com.refeed_ppb1.federatedmessaging.services.ApiGetResponse;
+import com.refeed_ppb1.federatedmessaging.services.ApiPostMessageRequest;
 import com.refeed_ppb1.federatedmessaging.services.FederatedMessagingService;
 
 import java.util.ArrayList;
@@ -26,6 +34,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ChatActivity extends AppCompatActivity {
 
     RecyclerView messageRv;
+    EditText inputChatET;
 
     List<MessageModel> messageModels = new ArrayList<>();
     MessageRVAdapter adapter = new MessageRVAdapter(messageModels);
@@ -47,6 +56,18 @@ public class ChatActivity extends AppCompatActivity {
         federatedMessagingService = getFederatedMessagingService(server_address);
         populateMessages();
         connectToWebsocket(server_address);
+
+        inputChatET = (EditText) findViewById(R.id.inputChat);
+        inputChatET.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_SEND) {
+                    sendMessageToWs();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     public static FederatedMessagingService getFederatedMessagingService(String serverAddress) {
@@ -97,6 +118,21 @@ public class ChatActivity extends AppCompatActivity {
         catch (Exception e) {
             Log.e("ws.connect", e.toString());
         }
+    }
+
+    private void sendMessageToWs() {
+        // TODO: Make a getSavedPassphrase() instead
+        SharedPreferences sharedPreferences = getSharedPreferences(
+                BuildConfig.APPLICATION_ID + R.string.IDENTITY_PREF,
+                MODE_PRIVATE);
+
+        final String passphrase = sharedPreferences.getString(PASSWORD_PREF_KEY, "");
+        final String body = inputChatET.getText().toString();
+
+        ApiPostMessageRequest request = new ApiPostMessageRequest(passphrase, body);
+
+        ws.sendText(new Gson().toJson(request));
+        inputChatET.setText("");
     }
 
     public static String convertUrlToWebsocketURL(String url) {

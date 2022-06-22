@@ -22,7 +22,7 @@
         android:layout_height="75dp"
         android:ems="10"
         android:background="@color/nila"
-
+        android:imeOptions="actionSend"
         android:inputType="textPersonName"
         android:textAlignment="textStart"
         app:layout_constraintBottom_toBottomOf="parent"
