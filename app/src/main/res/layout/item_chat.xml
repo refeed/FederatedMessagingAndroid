@@ -3,52 +3,46 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/full_msg_item">
 
     <LinearLayout
-        android:id="@+id/horizontal_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/keyChat"
-            android:layout_width="250dp"
+            android:id="@+id/sender_chat_tv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
+            android:layout_weight="1"
             android:text="7cd4d473b0b65c3ff7aa8291cfe48200"
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/dateChat"
+            android:id="@+id/date_chat_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:text="9.42 AM"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
     </LinearLayout>
     <TextView
-        android:id="@+id/chat"
-        android:layout_width="380dp"
+        android:id="@+id/body_chat_tv"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hello Anonnn"
         android:textColor="@color/white"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/rounded_corner"
-        android:padding="10dp"
-
-        />
-
-
-
-
+        android:padding="10dp" />
 
 </LinearLayout>

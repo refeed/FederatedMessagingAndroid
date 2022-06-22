@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.refeed_ppb1.federatedmessaging">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,17 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FederatedMessaging">
         <activity
+            android:name=".ChatActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".AddServerActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".SetupIdentityActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:parentActivityName=".SplashScreen"/>
+            android:parentActivityName=".SplashScreen" />
         <activity
             android:name=".SplashScreen"
             android:exported="true">

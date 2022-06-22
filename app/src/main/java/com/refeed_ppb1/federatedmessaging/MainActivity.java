@@ -19,7 +19,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<ServerModel> serverModels;
+    List<ServerModel> serverModels = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
