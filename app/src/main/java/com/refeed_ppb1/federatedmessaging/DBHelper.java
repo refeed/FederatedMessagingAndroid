@@ -58,12 +58,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                String serverName = cursor.getString(0);
-                String serverAddress = cursor.getString(1);
+                String serverName = cursor.getString(1);
+                String serverAddress = cursor.getString(0);
 
                 ServerModel server = new ServerModel(serverName, serverAddress);
                 servers.add(server);
-                System.out.println(server.toString());
             } while(cursor.moveToNext());
         }
 
