@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.refeed_ppb1.federatedmessaging.models.DBHelper;
 import com.refeed_ppb1.federatedmessaging.models.ServerModel;
 
 import java.util.ArrayList;

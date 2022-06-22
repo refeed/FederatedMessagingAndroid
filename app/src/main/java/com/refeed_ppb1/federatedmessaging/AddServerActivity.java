@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.refeed_ppb1.federatedmessaging.models.DBHelper;
 import com.refeed_ppb1.federatedmessaging.models.ServerModel;
 
 public class AddServerActivity extends AppCompatActivity {

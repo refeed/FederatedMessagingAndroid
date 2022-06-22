@@ -1,4 +1,4 @@
-package com.refeed_ppb1.federatedmessaging;
+package com.refeed_ppb1.federatedmessaging.models;
 
 import android.content.ContentValues;
 import android.content.Context;
