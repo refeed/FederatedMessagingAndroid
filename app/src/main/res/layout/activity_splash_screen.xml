@@ -50,7 +50,7 @@
         android:id="@+id/textView"
         android:layout_width="320dp"
         android:layout_height="84dp"
-        android:text="Federated Messaging"
+        android:text="FederatedMessaging"
         android:textSize="32sp"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
