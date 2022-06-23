@@ -1,4 +1,4 @@
-package com.refeed_ppb1.federatedmessaging;
+package com.refeed_ppb1.federatedmessaging.widget;
 
 import android.content.Intent;
 import android.widget.RemoteViewsService;

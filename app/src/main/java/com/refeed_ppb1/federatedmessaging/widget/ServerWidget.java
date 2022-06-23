@@ -1,4 +1,4 @@
-package com.refeed_ppb1.federatedmessaging;
+package com.refeed_ppb1.federatedmessaging.widget;
 
 import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
@@ -8,7 +8,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
-import android.widget.RemoteViewsService;
+
+import com.refeed_ppb1.federatedmessaging.ChatActivity;
+import com.refeed_ppb1.federatedmessaging.R;
 
 /**
  * Implementation of App Widget functionality.

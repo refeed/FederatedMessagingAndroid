@@ -1,4 +1,4 @@
-package com.refeed_ppb1.federatedmessaging;
+package com.refeed_ppb1.federatedmessaging.widget;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
+import com.refeed_ppb1.federatedmessaging.R;
 import com.refeed_ppb1.federatedmessaging.models.DBHelper;
 import com.refeed_ppb1.federatedmessaging.models.ServerModel;
 

@@ -13,11 +13,11 @@
         android:theme="@style/Theme.FederatedMessaging">
 
         <service
-            android:name=".ServerWidgetRemoteViewsService"
+            android:name=".widget.ServerWidgetRemoteViewsService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <receiver
-            android:name=".ServerWidget"
+            android:name=".widget.ServerWidget"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

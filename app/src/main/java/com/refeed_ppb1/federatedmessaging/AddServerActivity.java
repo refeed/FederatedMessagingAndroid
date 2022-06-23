@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.refeed_ppb1.federatedmessaging.models.DBHelper;
 import com.refeed_ppb1.federatedmessaging.models.ServerModel;
+import com.refeed_ppb1.federatedmessaging.widget.ServerWidget;
 
 public class AddServerActivity extends AppCompatActivity {
 
