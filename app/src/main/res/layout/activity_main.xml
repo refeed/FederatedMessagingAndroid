@@ -13,10 +13,7 @@
         android:layout_marginStart="40dp"
         android:fontFamily="sans-serif-light"
         android:visibility="invisible"
-        android:text="There is no server yet.
-Add a server by tapping at the
-plus sign on the right top
-section."
+        android:text="@string/noserver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -59,7 +56,7 @@ section."
         android:layout_height="57dp"
         android:layout_marginBottom="24dp"
         app:icon="@drawable/ic_baseline_perm_identity_24"
-        android:text="SETUP IDENTITY"
+        android:text="@string/setident"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
