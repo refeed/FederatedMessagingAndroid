@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FederatedMessaging</string>
+    <string name="setident">Menyiapkan Identitas</string>
+    <string name="next">Selanjutnya</string>
+    <string name="previous">Sebelumnya</string>
+    <string name="noserver">Belum ada server untuk saat ini. Tambahkan server dengan menekan tombol tambah di kanan atas</string>
+    <string name="serveraddress">Alamat Server</string>
+    <string name="servername">Nama Server</string>
+    <string name="done">Selesai</string>
+    <string name="pass">Kata Sandi</string>
+    <string name="addserver">Tambah Server</string>
+</resources>
