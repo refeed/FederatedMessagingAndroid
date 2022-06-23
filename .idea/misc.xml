@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../Android/Sdk/platforms/android-31/data/res/drawable/ratingbar_indicator_material.xml" value="0.1" />
         <entry key="..\:/materi ugm sem4/android studio 2/FederatedMessagingAndroid/app/src/main/res/drawable/rounded_corner.xml" value="0.182" />
         <entry key="..\:/materi ugm sem4/android studio 2/FederatedMessagingAndroid/app/src/main/res/layout/activity_add_server.xml" value="0.1796875" />
         <entry key="..\:/materi ugm sem4/android studio 2/FederatedMessagingAndroid/app/src/main/res/layout/activity_chat.xml" value="0.22" />
@@ -22,6 +23,7 @@
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.17" />
         <entry key="app/src/main/res/layout/item_chat.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_server.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/server_widget.xml" value="0.22" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.15989739204788372" />
       </map>
     </option>

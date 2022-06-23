@@ -44,6 +44,12 @@ public class AddServerActivity extends AppCompatActivity {
                 }
                 Toast.makeText(AddServerActivity.this, "Successfully added server", Toast.LENGTH_SHORT).show();
                 AddServerActivity.super.onBackPressed();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ServerWidget.sendRefreshBroadcast(AddServerActivity.this);
+                    }
+                });
             }
         });
     }
